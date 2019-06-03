@@ -1,2 +1,6 @@
 # Herricks-High-Roller
-The amazing, riveting, all around super cool game made by Andson Li, Daniel Min, and John Baek that will be sure to blow your socks away.
+A JavaScript based board game.
+
+This game is centered around rolling a die, moving around the board, buying classes, and trying to knock other players out of the game by stealing all of their points.
+
+If this sounds like Monopoly, that's where you're wrong, kiddo.
