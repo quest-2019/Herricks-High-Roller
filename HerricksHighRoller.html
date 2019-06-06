@@ -4,7 +4,6 @@
 <html>
 	<head>
 		<title>Herricks High Roller</title>
-		<link href="" rel="">
 	</head>
 
 	<body>
@@ -16,26 +15,26 @@
 
 		<script>
 			class Player {
-			
+
 				constructor(name, symbol) {
 					this.name = name;
 					this.symbol = symbol;
 					this.properties = [];
 					this.points = 150;
 				}
-				
+
 				// rolls a dice from 1-6 inclusive
 				function roll(){
 					return Math.floor((Math.random())*6) + 1;
 				}
-				
+
 				// roll dice twice
 				function roll_twice() {
 					var x = roll() + roll();
 					document.getElementById("dice").innerHTML = x;
 				}
 			}
-			
+
 			class Property {
 				constructor(name, color, cost, rent, mortgage, houseCost) {
 					this.name = name;
@@ -46,12 +45,7 @@
 					this.houseCost = houseCost;
 				}
 			}
-			
-
-
 
 		</script>
 	<body>
 <html>
-
-
