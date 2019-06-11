@@ -31,7 +31,8 @@
 
 				var playerString = "";
 				for (var i in players) {
-					playerString += i.name;
+					var num = parseInt(i) + 1
+					playerString += num + ". " + players[i]["name"] + "<br>";
 				}
 				document.getElementById("playerInfo").innerHTML = playerString;
 			}
