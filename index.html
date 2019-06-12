@@ -10,7 +10,91 @@
 		<p>Welcome contestants to the Herricks High Roller! Enjoy your stay!</p>
 		<button onclick="setup()">Click here to start</button>
 		<p id="playerInfo"></p>
+		
+		<table border=1>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+			</tr>
+				
+			<tr>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		
+		<!--><canvas id="icanvas" width=1000 height=1000></canvas><-->
+		
 		<script>
+			var imgTag = new Image();
+			var canvas = document.getElementById('icanvas');
+			var ctx = canvas.getContext("2d");
+			var x = canvas.width;
+			var y = 0;
+
+			imgTag.onload = animate;
+			imgTag.src = "yellowdino.png";   // load image
+
+			function animate() {
+			  ctx.clearRect(0, 0, canvas.width, canvas.height);  // clear canvas
+			  ctx.drawImage(imgTag, x, y);                       // draw image at current position
+			  x -= 4;
+			  if (x > 250) requestAnimationFrame(animate)        // loop
+			}
 			class Person {
 				constructor(name) {
 					this.name = name;
@@ -29,7 +113,7 @@
 					players.push(player);
 				}
 
-				var playerString = "";
+				var playerString = "Players:<br>";
 				for (var i in players) {
 					var num = parseInt(i) + 1
 					playerString += num + ". " + players[i]["name"] + "<br>";
