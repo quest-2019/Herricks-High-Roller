@@ -11,7 +11,6 @@
         <p><h1>Welcome contestants to the Herricks High Roller! Enjoy your stay!</h1></p>
         <p id="startbutton"><button onclick="setup()">Click here to start</button></p>
 		<p id="playerInfo"></p>
-        <button onclick="properties()">Properties</button>
 
 		<table border = 1>
 			<tr height=60>
@@ -93,7 +92,12 @@
 					this.name = name;
 					this.properties = [];
 					this.points = 150;
+                    this.position = 0;
 				}
+
+                move(spaces) {
+                    this.position += spaces;
+                }
 			}
 
             class Square {
@@ -138,8 +142,6 @@
 
 			function setup() {
 
-                properties()
-
 				var num = prompt("How many players?");
 				num = parseInt(num, 10);
 
@@ -157,7 +159,14 @@
 				}
 				document.getElementById("playerInfo").innerHTML = playerString;
                 document.getElementById("startbutton").innerHTML = "";
-			}
+
+                var classrooms = properties();
+
+                console.log(players[0].position);
+                players[0].move(3);
+                console.log(players[0].position);
+
+            }
 
             function properties() {
                 var classrooms = [];
@@ -201,7 +210,7 @@
                 classrooms.push(new Property("Computer Science I and II", "Computer Science", 35, [3.5, 17.5, 50.0, 110.0, 130.0, 150.0], 17.5, 20));
                 classrooms.push(new Tax("Court Yard", "Tax", 20.0))
                 classrooms.push(new Property("AP Computer Science", "Computer Science", 40, [5.0, 20.0, 60.0, 140.0, 170.0, 200.0], 20, 20));
-                console.log(classrooms);
+                return classrooms
             }
 
 		</script>
