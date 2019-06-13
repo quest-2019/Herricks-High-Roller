@@ -1,0 +1,8 @@
+.board-center {
+	width: 675px;
+	border: none;
+	vertical-align: bottom;
+	background-repeat: no-repeat;
+	background-size: auto 40px;
+	text-align: center;
+}
