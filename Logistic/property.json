@@ -1,0 +1,274 @@
+{
+	"First Period": {
+		"Color": "Go"
+	},
+
+	"Gym": {
+		"Color": "Physical Education",
+		"Cost": 6.0,
+		"Rent": [0.2, 1.0, 3.0, 9.0, 16.0, 25.0],
+		"Mortgage": 3.0,
+		"House/Hotel Cost": 5.0
+	},
+
+    "Test": {
+        "Color": "Community Chest"
+    },
+
+	"Health": {
+		"Color": "Physical Education",
+		"Cost": 6.0,
+		"Rent": [0.4, 2.0, 6.0, 18.0, 32.0, 45.0],
+		"Mortgage": 3.0,
+		"House/Hotel Cost": 5.0
+	},
+
+	"Senior Lounge": {
+		"Color": "Tax",
+		"Cost": 20.0
+	},
+
+	"Freshmen Hallway": {
+		"Color": "Railroad",
+		"Cost": 20.0,
+		"Rent": [2.5, 5.0, 10.0, 20.0],
+		"Mortgage": 10.0,
+		"House/Hotel Cost": 20.0
+	},
+
+	"US History": {
+		"Color": "Social Studies",
+		"Cost": 10.0,
+		"Rent": [0.6, 3.0, 9.0, 27.0, 40.0, 55.0],
+		"Mortgage": 5.0,
+		"House/Hotel Cost": 5.0
+	},
+
+    "Report Card": {
+        "Color": "Chance"
+    },
+
+	"AP Gov": {
+		"Color": "Social Studies",
+		"Cost": 10.0,
+		"Rent": [0.6, 3.0, 9.0, 27.0, 40.0, 55.0],
+		"Mortgage": 5.0,
+		"House/Hotel Cost": 5.0
+	},
+
+	"World": {
+		"Color": "Social Studies",
+		"Cost": 12.0,
+		"Rent": [0.8, 4.0, 10.0, 30.0, 45.0, 60.0],
+		"Mortgage": 6.0,
+		"House/Hotel Cost": 5.0
+	},
+
+	"Frisone's Office": {
+		"Color": "Jail"
+	},
+
+	"Living Environment Honors": {
+		"Color": "Science Department",
+		"Cost": 14.0,
+		"Rent": [1.0, 5.0, 15.0, 45.0, 62.5, 75.0],
+		"Mortgage": 7.0,
+		"House/Hotel Cost": 10.0
+	},
+
+	"Library": {
+		"Color": "Utility",
+		"Cost":15.0
+	},
+
+	"Chemistry Honors": {
+		"Color": "Science Department",
+		"Cost": 14.0,
+		"Rent": [1.0, 5.0, 15.0, 45.0, 62.5, 75.0],
+		"Mortgage": 7.0,
+		"House/Hotel Cost": 10.0
+	},
+
+	"AP Physics I": {
+		"Color": "Science Department",
+		"Cost": 16.0,
+		"Rent": [1.2, 6.0, 18.0, 50.0, 70.0, 900.0],
+		"Mortgage": 9.0,
+		"House/Hotel Cost": 10.0
+	},
+
+	"Sophmore Hallway": {
+		"Color": "Railroad",
+		"Cost": 20.0,
+		"Rent": [2.5, 5.0, 10.0, 20.0],
+		"Mortgage": 10.0,
+		"House/Hotel Cost": 20.0
+	},
+
+	"Band": {
+		"Color": "Music Department",
+		"Cost": 18.0,
+		"Rent": [1.4, 7.0, 20.0, 55.0, 75.0, 95.0],
+		"Mortgage": 9.0,
+		"House/Hotel Cost": 10.0
+	},
+
+    "Test": {
+        "Color": "Community Chest"
+    },
+
+	"Chorus": {
+		"Color": "Music Department",
+		"Cost": 18.0,
+		"Rent": [1.4, 7.0, 20.0, 55.0, 75.0, 95.0],
+		"Mortgage": 9.0,
+		"House/Hotel Cost": 10.0
+	},
+
+	"Orchestra": {
+		"Color": "Music Department",
+		"Cost": 18.0,
+		"Rent": [1.6, 8.0, 22.0, 60.0, 80.0, 100.0],
+		"Mortgage": 10.0,
+		"House/Hotel Cost": 10.0
+	},
+
+    "Free Period": {
+        "Color": "Free Parking"
+    },
+
+	"Algebra": {
+		"Color": "Math Department",
+		"Cost": 22.0,
+		"Rent": [1.8, 9.0, 25.0, 70.0, 87.5, 105.0],
+		"Mortgage": 11.0,
+		"House/Hotel Cost": 15.0
+	},
+
+    "Report Card": {
+        "Color": "Chance"
+    },
+
+	"Geometry": {
+		"Color": "Math Department",
+		"Cost": 22.0,
+		"Rent": [1.8, 9.0, 25.0, 70.0, 87.5, 105.0],
+		"Mortgage": 11.0,
+		"House/Hotel Cost": 15.0
+	},
+
+	"Calculus": {
+		"Color": "Math Department",
+		"Cost": 24.0,
+		"Rent": [2.0, 10.0, 30.0, 75.0, 92.5, 110.0],
+		"Mortgage": 12.0,
+		"House/Hotel Cost": 15.0
+	},
+
+	"Junior Hallway": {
+		"Color": "Railroad",
+		"Cost": 20.0,
+		"Rent": [2.5, 5.0, 10.0, 20.0],
+		"Mortgage": 10.0,
+		"House/Hotel Cost": 20.0
+	},
+
+	"Chinese": {
+		"Color": "World Language",
+		"Cost": 26.0,
+		"Rent": [2.2, 11.0, 33.0, 80.0, 97.5, 115.0],
+		"Mortgage": 13.0,
+		"House/Hotel Cost": 15.0
+	},
+
+	"Spanish": {
+		"Color": "World Language",
+		"Cost": 26.0,
+		"Rent": [2.2, 11.0, 33.0, 80.0, 97.5, 115.0],
+		"Mortgage": 13.0,
+		"House/Hotel Cost": 15.0
+	},
+
+
+	"Cafeteria": {
+		"Color": "Utility",
+		"Cost":15.0
+	},
+
+	"French": {
+		"Color": "World Language",
+		"Cost": 28.0,
+		"Rent": [2.4, 12.0, 36.0, 85.0, 102.5, 120.0],
+		"Mortgage": 14.0,
+		"House/Hotel Cost": 15.0
+	},
+
+
+    "Detention": {
+        "Color": "Go to Jail"
+    },
+
+	"English 10": {
+		"Color": "English Department",
+		"Cost": 30.0,
+		"Rent": [2.6, 13.0, 39.0, 90.0, 110.0, 127.5],
+		"Mortgage": 15.0,
+		"House/Hotel Cost": 20.0
+	},
+
+	"AP Language and Composition": {
+		"Color": "English Department",
+		"Cost": 30.0,
+		"Rent": [2.6, 13.0, 39.0, 90.0, 110.0, 127.5],
+		"Mortgage": 15.0,
+		"House/Hotel Cost": 20.0
+	},
+
+
+    "Test": {
+        "Color": "Community Chest"
+    },
+
+	"AP Literature": {
+		"Color": "English Department",
+		"Cost": 32.0,
+		"Rent": [2.8, 15.0, 45.0, 100.0, 120.0, 140.0],
+		"Mortgage": 16.0,
+		"House/Hotel Cost": 20.0
+	},
+
+
+	"Senior Hallway": {
+		"Color": "Railroad",
+		"Cost": 20.0,
+		"Rent": [2.5, 5.0, 10.0, 20.0],
+		"Mortgage": 10.0,
+		"House/Hotel Cost": 20.0
+	},
+
+
+    "Report Card": {
+        "Color": "Chance"
+    },
+
+	"Computer Science I & II": {
+		"Color": "Computer Science Department",
+		"Cost": 35.0,
+		"Rent": [3.5, 17.5, 50.0, 110.0, 130.0, 150.0],
+		"Mortgage": 17.5,
+		"House/Hotel Cost": 20.0
+	},
+
+	"Court Yard": {
+		"Color": "Tax",
+		"Cost": 15.0
+	},
+
+	"AP Computer Science": {
+		"Color": "Computer Science Department",
+		"Cost": 40.0,
+		"Rent": [5.0, 20.0, 60.0, 140.0, 170.0, 200.0],
+		"Mortgage": 20.0,
+		"House/Hotel Cost": 20.0
+	}
+};
