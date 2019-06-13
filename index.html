@@ -3,14 +3,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <meta charset="UTF-8">
 		<title>Herricks High Roller</title>
 	</head>
-	
+
 	<body>
 		<p>Welcome contestants to the Herricks High Roller! Enjoy your stay!</p>
 		<button onclick="setup()">Click here to start</button>
 		<p id="playerInfo"></p>
-		<script>
+
+		<script type="text/javascript" src="property.js">
+            console.log(data);
+        </script>
+
+        <script>
 			class Person {
 				constructor(name) {
 					this.name = name;
@@ -21,7 +27,7 @@
 			function setup() {
 				var num = prompt("How many players?");
 				num = parseInt(num, 10);
-				
+
 				var players = [];
 				for (var i=0; i<num; i++) {
 					var name = prompt("Enter a name");
