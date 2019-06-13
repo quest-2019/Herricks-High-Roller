@@ -5,106 +5,86 @@
 	<head>
         <meta charset="UTF-8">
 		<title>Herricks High Roller</title>
-	</head>
+		<link rel="stylesheet" href="style.css">
 
 	<body>
 		<p>Welcome contestants to the Herricks High Roller! Enjoy your stay!</p>
 		<button onclick="setup()">Click here to start</button>
 		<p id="playerInfo"></p>
-<<<<<<< HEAD
-
-		<script type="text/javascript" src="property.js">
-            console.log(data);
-        </script>
-
-        <script>
-=======
-		
-		<table border=1>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+		<table border = 1>
+			<tr height=60>
+				<td class="shrink">Period 1</td>
+				<td class="shrink">Gym</td>
+				<td class="shrink">Test</td>
+				<td class="shrink">Health</td>
+				<td class="shrink">Senior Lounge</td>
+				<td class="shrink">Freshmen Hallway</td>
+				<td class="shrink">AP World History</td>
+				<td class="shrink">AP U.S. History</td>
+				<td class="shrink">Report Card</td>
+				<td class="shrink">AP Government</td>
+				<td class="expand">Frisone's Office</td>
 			</tr>
-			
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-			
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-			
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-			
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-			
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-			
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-				
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-			
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-			
-			<tr>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">element1</td>
+				<td class="board-center" colspan="9"></td>
+				<td class="shrink">element1</td>
 			</tr>
-			
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr height=60>
+				<td class="shrink">more</td>
+				<td class="shrink">of </td>
+				<td class="shrink">these</td>
+				<td class="shrink">element1</td>
+				<td class="shrink">element1</td>
+				<td class="shrink">element1</td>
+				<td class="shrink">element1</td>
+				<td class="shrink">element1</td>
+				<td class="shrink">element1</td>
+				<td class="shrink">element1</td>
+				<td class="expand">rows</td>
 			</tr>
 		</table>
-		
-		<!--><canvas id="icanvas" width=1000 height=1000></canvas><-->
-		
 		<script>
-			var imgTag = new Image();
-			var canvas = document.getElementById('icanvas');
-			var ctx = canvas.getContext("2d");
-			var x = canvas.width;
-			var y = 0;
-
-			imgTag.onload = animate;
-			imgTag.src = "yellowdino.png";   // load image
-
-			function animate() {
-			  ctx.clearRect(0, 0, canvas.width, canvas.height);  // clear canvas
-			  ctx.drawImage(imgTag, x, y);                       // draw image at current position
-			  x -= 4;
-			  if (x > 250) requestAnimationFrame(animate)        // loop
-			}
->>>>>>> f702950370e5e77ccb0eaeb8969740a90262eec9
 			class Person {
 				constructor(name) {
 					this.name = name;
