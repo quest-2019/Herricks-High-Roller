@@ -11,15 +11,7 @@
 		<p>Welcome contestants to the Herricks High Roller! Enjoy your stay!</p>
 		<button onclick="setup()">Click here to start</button>
 		<p id="playerInfo"></p>
-<<<<<<< HEAD
 
-		<script type="text/javascript" src="property.js">
-            console.log(data);
-        </script>
-
-        <script>
-=======
-		
 		<table border=1>
 			<tr>
 				<td></td>
@@ -34,43 +26,43 @@
 				<td></td>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 			</tr>
-				
+
 			<tr>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 				<td></td>
@@ -85,9 +77,9 @@
 				<td></td>
 			</tr>
 		</table>
-		
+
 		<!--><canvas id="icanvas" width=1000 height=1000></canvas><-->
-		
+
 		<script>
 			var imgTag = new Image();
 			var canvas = document.getElementById('icanvas');
@@ -104,7 +96,17 @@
 			  x -= 4;
 			  if (x > 250) requestAnimationFrame(animate)        // loop
 			}
->>>>>>> f702950370e5e77ccb0eaeb8969740a90262eec9
+
+			class Property {
+				constructor(name, color, cost, rent, mortgage, houseCost) {
+					this.name = name;
+					this.color = color;
+					this.cost = cost;
+					this.rent = rent;
+					this.mortgage = mortgage;
+					this.houseCost = houseCost;
+            }
+
 			class Person {
 				constructor(name) {
 					this.name = name;
@@ -130,6 +132,7 @@
 				}
 				document.getElementById("playerInfo").innerHTML = playerString;
 			}
+
 		</script>
 	</body>
 </html>
