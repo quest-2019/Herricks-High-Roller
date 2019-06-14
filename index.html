@@ -10,6 +10,7 @@
 	<body>
         <p><h1>Welcome contestants to the Herricks High Roller! Enjoy your stay!</h1></p>
         <p id="startbutton"><button onclick="setup()">Click here to start</button></p>
+        <p id="currentPlayer"></p>
 		<p id="playerInfo"></p>
 
 		<table border = 1>
@@ -140,9 +141,38 @@
                 }
             }
 
+            function printPlayers(players, classrooms) {
+                var playerString = "<h3>Players:<br></h3>";
+				for (var i in players) {
+					var num = parseInt(i) + 1
+					playerString += num + ". " + players[i]["name"] + "- " + classrooms[players[i].position].name + "<br>";
+				}
+				document.getElementById("playerInfo").innerHTML = playerString;
+            }
+
+            function roll() {
+                var num1 = Math.floor(Math.random() * 6) + 1;
+                var num2 = Math.floor(Math.random() * 6) + 1;
+                return num1 + num2;
+            }
+
+            function gameloop(players, classrooms) {
+                for (var i=0; i < players.length; i++) {
+                    document.getElementById("currentPlayer").innerHTML = "Current Player: " + players[i].name;
+                    alert(players[i].name + "'s turn\nClick to Roll");
+
+                    var rol = roll();
+                    alert(players[i].name + " rolled " + rol);
+                }
+            }
+
 			function setup() {
 
+                // Number of players
 				var num = prompt("How many players?");
+
+                // The array of classroom and Square objects
+                var classrooms = properties();
 				num = parseInt(num, 10);
 
 				var players = [];
@@ -152,20 +182,15 @@
 					players.push(player);
 				}
 
-                var playerString = "<h3>Players:<br></h3>";
-				for (var i in players) {
-					var num = parseInt(i) + 1
-					playerString += num + ". " + players[i]["name"] + "<br>";
-				}
-				document.getElementById("playerInfo").innerHTML = playerString;
+                // Get rid of button after it's pressed
                 document.getElementById("startbutton").innerHTML = "";
+                // Replace with dice button
 
-                var classrooms = properties();
+                // Print the player information and the position
+                printPlayers(players, classrooms);
 
-                console.log(players[0].position);
-                players[0].move(3);
-                console.log(players[0].position);
-
+                // Start the actual game
+                gameloop(players, classrooms);
             }
 
             function properties() {
@@ -176,10 +201,10 @@
                 classrooms.push(new Property("Health", "Physical Education", 6.0, [0.4, 2.0, 6.0, 18.0, 32.0, 45.0], 3, 5));
                 classrooms.push(new Tax("Senior Lounge", "Tax", 20.0))
                 classrooms.push(new Hallway("Freshman Hallway", "Railroad"))
+                classrooms.push(new Property("World History", "Social Studies", 12, [0.8, 4.0, 10.0, 30.0, 45.0, 60.0], 6, 5));
                 classrooms.push(new Property("US History", "Social Studies", 10.0, [0.6, 3.0, 9.0, 27.0, 40.0, 55.0], 5, 5));
                 classrooms.push(new Square("Report Card", "Chance"));
                 classrooms.push(new Property("AP Government", "Social Studies", 10, [0.6, 3.0, 9.0, 27.0, 40.0, 55.0], 5, 5));
-                classrooms.push(new Property("World History", "Social Studies", 12, [0.8, 4.0, 10.0, 30.0, 45.0, 60.0], 6, 5));
                 classrooms.push(new Square("Frisone's Office", "Jail"));
                 classrooms.push(new Property("Living Environment", "Science", 14, [1.0, 5.0, 15.0, 45.0, 62.5, 75.0], 7, 10));
                 classrooms.push(new Utility("Library", "Utility"));
