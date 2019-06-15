@@ -164,7 +164,9 @@
 
                     var rol = roll();
                     alert(players[i].name + " rolled " + rol);
-                    var bool = prompt("Would you like to buy?", "Yes");
+                    players[i].move(rol);
+                    printPlayers(players, classrooms);
+                    // var bool = prompt("Would you like to buy?", "Yes");
                 }
             }
 
