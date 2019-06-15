@@ -156,13 +156,15 @@
                 return num1 + num2;
             }
 
+            // The actual game
             function gameloop(players, classrooms) {
                 for (var i=0; i < players.length; i++) {
-                    document.getElementById("currentPlayer").innerHTML = "Current Player: " + players[i].name;
+                    document.getElementById("currentPlayer").innerHTML = "<h2>Current Player: " + players[i].name + "</h2>";
                     alert(players[i].name + "'s turn\nClick to Roll");
 
                     var rol = roll();
                     alert(players[i].name + " rolled " + rol);
+                    var bool = prompt("Would you like to buy?", "Yes");
                 }
             }
 
