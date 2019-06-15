@@ -9,6 +9,7 @@
 
 	<body>
         <p><h1>Welcome contestants to the Herricks High Roller! Enjoy your stay!</h1></p>
+        <p id="playButton"></p>
         <p id="startbutton"><button onclick="setup()">Click here to start</button></p>
         <p id="currentPlayer"></p>
 		<p id="playerInfo"></p>
@@ -94,10 +95,12 @@
 					this.properties = [];
 					this.points = 150;
                     this.position = 0;
+                    this.inJail = false;
 				}
 
                 move(spaces) {
                     this.position += spaces;
+                    this.position %= window.classrooms.length;
                 }
 			}
 
@@ -145,7 +148,12 @@
                 var playerString = "<h3>Players:<br></h3>";
 				for (var i in players) {
 					var num = parseInt(i) + 1
-					playerString += num + ". " + players[i]["name"] + "- " + classrooms[players[i].position].name + "<br>";
+                    if (classrooms[players[i].position].name == "Frisone's Office" && !players[i].inJail) {
+                        playerString += num + ". " + players[i]["name"] + "- " + classrooms[players[i].position].name + " (Just Visiting)" + "<br>";
+                    }
+                    else {
+                        playerString += num + ". " + players[i]["name"] + "- " + classrooms[players[i].position].name + "<br>";
+                    }
 				}
 				document.getElementById("playerInfo").innerHTML = playerString;
             }
@@ -168,6 +176,13 @@
                     printPlayers(players, classrooms);
                     // var bool = prompt("Would you like to buy?", "Yes");
                 }
+
+                window.players = players;
+                window.classrooms = classrooms;
+
+                document.getElementById("currentPlayer").innerHTML = "";
+                document.getElementById("playButton").innerHTML = "<button onclick=\"gameloop(window.players, window.classrooms)\">Click here to continue</button>";
+
             }
 
 			function setup() {
@@ -241,6 +256,8 @@
                 classrooms.push(new Property("AP Computer Science", "Computer Science", 40, [5.0, 20.0, 60.0, 140.0, 170.0, 200.0], 20, 20));
                 return classrooms
             }
+
+            classrooms = properties();
 
 		</script>
 	</body>
