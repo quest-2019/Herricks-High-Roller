@@ -162,10 +162,10 @@
 				for (var i in players) {
 					var num = parseInt(i) + 1
                     if (classrooms[players[i].position].name == "Frisone's Office" && !players[i].inJail) {
-                        playerString += num + ". " + players[i]["name"] + "- " + classrooms[players[i].position].name + " (Just Visiting)" + "<br>";
+                        playerString += "<strong>" + num + ". " + players[i]["name"] + "</strong>- " + classrooms[players[i].position].name + " (Just Visiting)" + "<br>";
                     }
                     else {
-                        playerString += num + ". " + players[i]["name"] + "- " + classrooms[players[i].position].name + "<br>";
+                        playerString += "<strong>" + num + ". " + players[i]["name"] + "</strong>- " + classrooms[players[i].position].name + "<br>";
                     }
                     var propertyArray = [];
                     for (var x in players[i].properties) {
