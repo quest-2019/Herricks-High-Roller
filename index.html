@@ -177,7 +177,7 @@
                     else {
                         playerString += propertyArray.toString() + " ";
                     }
-                    playerString += "<strong>Points: </strong>" + players[i].points  + "<br><br>"
+                    playerString += "<strong>Points: </strong>" + players[i].points.toFixed(2) + "<br><br>"
 				}
 				document.getElementById("playerInfo").innerHTML = playerString;
             }
