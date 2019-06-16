@@ -107,6 +107,7 @@
                 constructor(name, color) {
                     this.name = name;
                     this.color = color;
+                    this.buyable = false;
                 }
             }
 
@@ -117,14 +118,20 @@
                     this.rent = rent;
                     this.mortgage = mortgage;
                     this.houseCost = houseCost;
-                    this.houses = [];
+                    this.houses = 0;
                     this.owner = null;
+                    this.buyable = true;
+                    this.isProperty = true;
                 }
             }
 
             class Utility extends Square {
                 constructor(name, color) {
                     super(name, color);
+                    this.owner = null;
+                    this.buyable = true;
+                    this.isProperty = false;
+                    this.cost = 15;
                 }
             }
 
@@ -134,6 +141,9 @@
                     this.cost = 20;
                     this.rent = [2.5, 5.0, 10.0, 20.0];
                     this.mortgage = 10.0;
+                    this.owner = null;
+                    this.buyable = true;
+                    this.isProperty = false;
                 }
             }
 
@@ -141,9 +151,11 @@
                 constructor(name, color, price) {
                     super(name, color);
                     this.price = price;
+                    this.buyable = false;
                 }
             }
 
+            // Print player info
             function printPlayers(players, classrooms) {
                 var playerString = "<h3>Players:<br></h3>";
 				for (var i in players) {
@@ -154,27 +166,66 @@
                     else {
                         playerString += num + ". " + players[i]["name"] + "- " + classrooms[players[i].position].name + "<br>";
                     }
+                    var propertyArray = [];
+                    for (var x in players[i].properties) {
+                        propertyArray.push(players[i]["properties"][x].name);
+                    }
+                    playerString += "<strong>Properties:</strong> ";
+                    if (propertyArray.toString() == "") {
+                        playerString += "None ";
+                    }
+                    else {
+                        playerString += propertyArray.toString() + " ";
+                    }
+                    playerString += "<strong>Points: </strong>" + players[i].points  + "<br><br>"
 				}
 				document.getElementById("playerInfo").innerHTML = playerString;
             }
 
+            // Roll die twice and return number
             function roll() {
                 var num1 = Math.floor(Math.random() * 6) + 1;
                 var num2 = Math.floor(Math.random() * 6) + 1;
                 return num1 + num2;
             }
 
-            // The actual game
+            // The actual gameloop
             function gameloop(players, classrooms) {
                 for (var i=0; i < players.length; i++) {
                     document.getElementById("currentPlayer").innerHTML = "<h2>Current Player: " + players[i].name + "</h2>";
                     alert(players[i].name + "'s turn\nClick to Roll");
 
                     var rol = roll();
-                    alert(players[i].name + " rolled " + rol);
+
+                    // Move the player
                     players[i].move(rol);
+
+                    alert(players[i].name + " rolled " + rol + ".\nYou landed on " + classrooms[players[i].position].name + ".");
+
+                    // Pay rent if owned
+                    if (classrooms[players[i].position].buyable && classrooms[players[i].position].isProperty && classrooms[players[i].position].owner != null) {
+                        alert("You landed on " + classrooms[players[i].position].owner.name + "'s property!\nPay " + classrooms[players[i].position].rent[classrooms[players[i].position].houses] + " points!");
+                        players[i].points -= classrooms[players[i].position].rent[classrooms[players[i].position].houses];
+                        classrooms[players[i].position].owner.points += classrooms[players[i].position].rent[classrooms[players[i].position].houses];
+                    }
+
+                    if (classrooms[players[i].position].owner == null && classrooms[players[i].position].buyable) {
+                        var response = prompt("You landed on " + classrooms[players[i].position].name + ".\nWould you like to puchase it for " + classrooms[players[i].position].cost + " points? (y/N)", "y");
+                        if (response == "y") {
+                            if (players[i].points >= classrooms[players[i].position].cost) {
+                                players[i].points -= classrooms[players[i].position].cost;
+                                players[i].properties.push(classrooms[players[i].position]);
+
+                                // Set owner
+                                classrooms[players[i].position].owner = players[i];
+                            }
+                            else {
+                                alert("You don't have enough points!");
+                            }
+                        }
+                    }
+
                     printPlayers(players, classrooms);
-                    // var bool = prompt("Would you like to buy?", "Yes");
                 }
 
                 window.players = players;
@@ -228,7 +279,7 @@
                 classrooms.push(new Property("Living Environment", "Science", 14, [1.0, 5.0, 15.0, 45.0, 62.5, 75.0], 7, 10));
                 classrooms.push(new Utility("Library", "Utility"));
                 classrooms.push(new Property("Chemistry", "Science", 14, [1.0, 5.0, 15.0, 45.0, 62.5, 75.0], 7, 10));
-                classrooms.push(new Property("AP Physics I and II", 16, [1.2, 6.0, 18.0, 50.0, 70.0, 900.0], 9, 10));
+                classrooms.push(new Property("AP Physics I and II", "Science", 16, [1.2, 6.0, 18.0, 50.0, 70.0, 900.0], 9, 10));
                 classrooms.push(new Hallway("Sophmore Hallway", "Railroad"))
                 classrooms.push(new Property("Band", "Music", 18, [1.4, 7.0, 20.0, 55.0, 75.0, 95.0], 9, 10));
                 classrooms.push(new Square("Test", "Community Chest"));
