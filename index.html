@@ -95,6 +95,7 @@
 					this.points = 150;
                     this.position = 0;
                     this.inJail = false;
+                    this.jailTime = 0;
 				}
 
                 move(spaces) {
@@ -177,7 +178,7 @@
                     else {
                         playerString += propertyArray.toString() + " ";
                     }
-                    playerString += "<strong>Points: </strong>" + players[i].points.toFixed(2) + "<br><br>"
+                    playerString += "<strong> || Points: </strong>" + players[i].points.toFixed(2) + "<br><br>"
 				}
 				document.getElementById("playerInfo").innerHTML = playerString;
             }
@@ -191,41 +192,59 @@
 
             // The actual gameloop
             function gameloop(players, classrooms) {
+                document.getElementById("playButton").innerHTML = "";
                 for (var i=0; i < players.length; i++) {
-                    document.getElementById("currentPlayer").innerHTML = "<h2>Current Player: " + players[i].name + "</h2>";
-                    alert(players[i].name + "'s turn\nClick to Roll");
+                    if (!players[i].inJail) {
+                        document.getElementById("currentPlayer").innerHTML = "<h2>Current Player: " + players[i].name + "</h2>";
+                        alert(players[i].name + "'s turn\nClick to Roll");
 
-                    var rol = roll();
+                        var rol = roll();
 
-                    // Move the player
-                    players[i].move(rol);
+                        // Move the player
+                        players[i].move(rol);
 
-                    alert(players[i].name + " rolled " + rol + ".\nYou landed on " + classrooms[players[i].position].name + ".");
+                        alert(players[i].name + " rolled " + rol + ".\nYou landed on " + classrooms[players[i].position].name + ".");
 
-                    // Pay rent if owned
-                    if (classrooms[players[i].position].buyable && classrooms[players[i].position].isProperty && classrooms[players[i].position].owner != null) {
-                        alert("You landed on " + classrooms[players[i].position].owner.name + "'s property!\nPay " + classrooms[players[i].position].rent[classrooms[players[i].position].houses] + " points!");
-                        players[i].points -= classrooms[players[i].position].rent[classrooms[players[i].position].houses];
-                        classrooms[players[i].position].owner.points += classrooms[players[i].position].rent[classrooms[players[i].position].houses];
-                    }
+                        // Pay rent if owned
+                        if (classrooms[players[i].position].buyable && classrooms[players[i].position].isProperty && classrooms[players[i].position].owner != null) {
+                            alert("You landed on " + classrooms[players[i].position].owner.name + "'s property!\nPay " + classrooms[players[i].position].rent[classrooms[players[i].position].houses] + " points!");
+                            players[i].points -= classrooms[players[i].position].rent[classrooms[players[i].position].houses];
+                            classrooms[players[i].position].owner.points += classrooms[players[i].position].rent[classrooms[players[i].position].houses];
+                        }
 
-                    if (classrooms[players[i].position].owner == null && classrooms[players[i].position].buyable) {
-                        var response = prompt("You landed on " + classrooms[players[i].position].name + ".\nWould you like to puchase it for " + classrooms[players[i].position].cost + " points? (y/N)", "y");
-                        if (response == "y") {
-                            if (players[i].points >= classrooms[players[i].position].cost) {
-                                players[i].points -= classrooms[players[i].position].cost;
-                                players[i].properties.push(classrooms[players[i].position]);
+                        if (classrooms[players[i].position].owner == null && classrooms[players[i].position].buyable) {
+                            var response = prompt("You landed on " + classrooms[players[i].position].name + ".\nWould you like to puchase it for " + classrooms[players[i].position].cost + " points? (y/N)\nYou have " + players[i].points.toFixed(2) + " points.", "y");
+                            if (response == "y") {
+                                if (players[i].points >= classrooms[players[i].position].cost) {
+                                    players[i].points -= classrooms[players[i].position].cost;
+                                    players[i].properties.push(classrooms[players[i].position]);
 
-                                // Set owner
-                                classrooms[players[i].position].owner = players[i];
-                            }
-                            else {
-                                alert("You don't have enough points!");
+                                    // Set owner
+                                    classrooms[players[i].position].owner = players[i];
+                                }
+                                else {
+                                    alert("You don't have enough points!");
+                                }
                             }
                         }
-                    }
 
-                    printPlayers(players, classrooms);
+                        if (classrooms[players[i].position].name == "Detention") {
+                            alert("You get detention for 3 turns!");
+                            players[i].inJail = true;
+                            players[i].jailTime = 3;
+                            players[i].position = 10;
+                        }
+
+                        printPlayers(players, classrooms);
+                    }
+                    else {
+                        alert(players[i].name + " is in detention for " + players[i].jailTime + " more turns!");
+                        players[i].jailTime -= 1;
+                        if (players[i].jailTime == -1) {
+                            players[i].inJail = false;
+                            alert(players[i].name + " was released from detention!");
+                        }
+                    }
                 }
 
                 window.players = players;
