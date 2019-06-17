@@ -277,11 +277,18 @@
                         alert(players[i].name + "'s turn\nClick to Roll");
 
                         var rol = roll();
+						var posBefore = players[i].position;
 
                         // Move the player
                         players[i].move(rol);
 
                         alert(players[i].name + " rolled " + rol + ".\nYou landed on " + classrooms[players[i].position].name + ".");
+						
+						if (posBefore > players[i].position) {
+							alert("First Period started!\n" + players[i].name + " got 20 points!");
+							players[i].points += 20;
+							printPlayers(players, classrooms);
+						}
 
                         // Pay rent if owned
                         if (classrooms[players[i].position].buyable && classrooms[players[i].position].isProperty && classrooms[players[i].position].owner != null) {
@@ -454,7 +461,7 @@
                 classrooms.push(new Hallway("Senior Hallway", "Railroad"))
                 classrooms.push(new Square("Report Card Q4", "Chance"));
                 classrooms.push(new Property("Computer Science I and II", "Computer Science", 35, [3.5, 17.5, 50.0, 110.0, 130.0, 150.0], 17.5, 20));
-                classrooms.push(new Tax("Court Yard", "Tax", 7.5))
+                classrooms.push(new Tax("Court Yard", "Tax", 20.0))
                 classrooms.push(new Property("AP Computer Science", "Computer Science", 40, [5.0, 20.0, 60.0, 140.0, 170.0, 200.0], 20, 20));
                 return classrooms
             }
