@@ -9,6 +9,7 @@
 	<body bgcolor="lightgray">
         <p><h1>Welcome contestants to the Herricks High Roller! Enjoy your stay!</h1></p>
         <p id="playButton"></p>
+        <p id="houseButton"></p>
         <p id="startbutton"><button onclick="setup()">Click here to start</button></p>
         <p id="currentPlayer"></p>
 		<p id="playerInfo"></p>
@@ -156,6 +157,39 @@
                 }
             }
 
+            function house(players, classrooms) {
+                var num = prompt("Get extra help for which player?");
+                num = parseInt(num) - 1;
+                var available = [];
+                for (var x=0; x< players[num].properties.length; x++) {
+                    if (players[num].properties[x].isProperty) {
+                        available.push(players[num].properties[x]);
+                    }
+                }
+                if (available.length == 0) {
+                    alert("You have no classes!");
+                    return false;
+                }
+                else {
+                    var availstring = "Choose a class:\n";
+                    for (var nn in available) {
+                        availstring += (parseInt(nn) + 1) + ". " + available[nn].name + "\n";
+                    }
+                    var choice = prompt(availstring);
+                    choice = parseInt(choice) - 1;
+                    var selected = available[choice];
+                    if (selected.houseCost <= players[num].points && selected.houses < 4) {
+                        alert(players[num].name + " got extra help for " + selected.name + "!");
+                        players[num].points -= selected.houseCost;
+                        selected.houses += 1;
+                        printPlayers(players, classrooms);
+                    }
+                    else {
+                        alert(players[num] + " was not able to get extra help!");
+                    }
+                }
+            }
+
             // Print player info
             function printPlayers(players, classrooms) {
                 var playerString = "<h3>Players:<br></h3>";
@@ -193,6 +227,7 @@
             // The actual gameloop
             function gameloop(players, classrooms) {
                 document.getElementById("playButton").innerHTML = "";
+                document.getElementById("houseButton").innerHTML = "";
                 for (var i=0; i < players.length; i++) {
                     if (!players[i].inJail) {
                         document.getElementById("currentPlayer").innerHTML = "<h2>Current Player: " + players[i].name + "</h2>";
@@ -252,6 +287,7 @@
 
                 document.getElementById("currentPlayer").innerHTML = "";
                 document.getElementById("playButton").innerHTML = "<button onclick=\"gameloop(window.players, window.classrooms)\">Click here to continue</button>";
+                document.getElementById("houseButton").innerHTML = "<button onclick=\"house(window.players, window.classrooms)\">Click here to get extra help</button>";
 
             }
 
