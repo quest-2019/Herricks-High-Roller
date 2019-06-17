@@ -274,12 +274,37 @@
                             players[i].position = 10;
                         }
 
+						// Classrooms
                         if (classrooms[players[i].position].color == "Tax") {
                             alert("You are slacking off at " + classrooms[players[i].position].name + "!\nLose " + classrooms[players[i].position].price + " points!");
                             players[i].points -= classrooms[players[i].position].price;
                         }
 
-                        // Do hallways maybe
+                        // Hallways
+						if(classrooms[players[i].position].color == "Railroad" && classrooms[players[i].position].owner != players[i]) {
+							alert(players[i].name + " is in " + classrooms[players[i].position].owner.name + "'s Hallway!\nPay " + classrooms[players[i].position].rent[1] + " points!");
+							// Change this based on number of hallways
+							players[i].points -= classrooms[players[i].position].rent[1];
+							classrooms[players[i].position].owner.points += classrooms[players[i].position].rent[1];
+						}
+						
+					    // Utilities
+						if (classrooms[players[i].position].color == "Utility" && classrooms[players[i].position].owner != players[i]) {
+							var payAmount = rol * 0.7;
+							alert(players[i].name + " is in " + classrooms[players[i].position].owner.name + "'s " + classrooms[players[i].position].name + "!\nPay " + payAmount.toFixed(2) + " points!");
+							players[i].points -= payAmount;
+							classrooms[players[i].position].owner.points += payAmount;
+						}
+						
+						// Test
+						// if (classrooms[players[i].position].color == "Community Chest") {
+						//	var rand = Math.floor(Math.random() * 100) + 65;
+						//	if (rand >= 90) {
+						//		alert(players[i].name]
+						}
+						
+						// Report Card
+						
 
                         printPlayers(players, classrooms);
                     }
