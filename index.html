@@ -158,7 +158,7 @@
             }
 
             function house(players, classrooms) {
-                var num = prompt("Get extra help for which player?");
+                var num = prompt("Get extra help for which player? (enter number)");
                 num = parseInt(num) - 1;
                 var available = [];
                 for (var x=0; x< players[num].properties.length; x++) {
@@ -171,19 +171,23 @@
                     return false;
                 }
                 else {
-                    var availstring = "Choose a class:\n";
+                    var availstring = "Your Points: " + players[num].points.toFixed(2) + "\nChoose a class:\n";
                     for (var nn in available) {
-                        availstring += (parseInt(nn) + 1) + ". " + available[nn].name + "\n";
+                        availstring += (parseInt(nn) + 1) + ". " + available[nn].name + " (" + available[nn].houseCost + " points)\n";
                     }
                     var choice = prompt(availstring);
                     choice = parseInt(choice) - 1;
                     var selected = available[choice];
                     if (selected.houseCost <= players[num].points && selected.houses < 4) {
-                        alert(players[num].name + " got extra help for " + selected.name + "!");
+                        alert(players[num].name + " got extra help for " + selected.name + "!\nExtra Help Sessions: " + (selected.houses + 1));
                         players[num].points -= selected.houseCost;
                         selected.houses += 1;
                         printPlayers(players, classrooms);
                     }
+                    else if (selected.houses == 4) {
+                        alert(selected.name + " already has 4 extra help sessions!");
+                    }
+
                     else {
                         alert(players[num] + " was not able to get extra help!");
                     }
@@ -192,7 +196,7 @@
 
             // Print player info
             function printPlayers(players, classrooms) {
-                var playerString = "<h3>Players:<br></h3>";
+                var playerString = "";
 				for (var i in players) {
 					var num = parseInt(i) + 1
                     if (classrooms[players[i].position].name == "Frisone's Office" && !players[i].inJail) {
@@ -269,6 +273,13 @@
                             players[i].jailTime = 3;
                             players[i].position = 10;
                         }
+
+                        if (classrooms[players[i].position].color == "Tax") {
+                            alert("You are slacking off at " + classrooms[players[i].position].name + "!\nLose " + classrooms[players[i].position].price + " points!");
+                            players[i].points -= classrooms[players[i].position].price;
+                        }
+
+                        // Do hallways maybe
 
                         printPlayers(players, classrooms);
                     }
