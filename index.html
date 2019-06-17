@@ -7,7 +7,7 @@
 		<title>Herricks High Roller</title>
 		<link rel="stylesheet" href="style.css">
 	<body bgcolor="lightgray">
-        <p><h1>Welcome contestants to the Herricks High Roller! Enjoy your stay!</h1></p>
+        <p><h1 id="titl">Welcome contestants to the Herricks High Roller! Enjoy your stay!</h1></p>
         <p id="playButton"></p>
         <p id="houseButton"></p>
         <p id="startbutton"><button onclick="setup()">Click here to start</button></p>
@@ -19,44 +19,44 @@
 				<td class="shrink">Period 1</td>
                 <td class="shrink"><font color="brown" id="Gym">Gym</font></td>
                 <td class="shrink"><font color="aqua">Test</font></td>
-                <td class="shrink"><font color="brown">Health</font></td>
+                <td class="shrink"><font color="brown" id="Health">Health</font></td>
                 <td class="shrink"><font color="darkblue">Senior Lounge</font></td>
                 <td class="shrink"><font color="magenta">Freshmen Hallway</font></td>
-				<td class="shrink"><font color="skyblue">AP World History</font></td>
-				<td class="shrink"><font color="skyblue">AP U.S. History</font></td>
+				<td class="shrink"><font color="skyblue" id="World History">World History</font></td>
+				<td class="shrink"><font color="skyblue" id="AP U.S. History">AP U.S. History</font></td>
                 <td class="shrink"><font color="white">Report Card</font></td>
-				<td class="shrink"><font color="skyblue">AP Government</font></td>
+				<td class="shrink"><font color="skyblue" id="AP Government">AP Government</font></td>
 				<td class="expand">Frisone's Office</td>
 			</tr>
 			<tr height=60>
-				<td class="shrink"><font color="blue">AP Computer Science</font></td>
+				<td class="shrink"><font color="blue" id="AP Computer Science">AP Computer Science</font></td>
 				<td class="board-center" colspan="9"></td>
-				<td class="shrink"><font color="purple">Living Environment</font></td>
+				<td class="shrink"><font color="purple" id="Living Environment">Living Environment</font></td>
 			</tr>
 			<tr height=60>
-                <td class="shrink"><font color="darkblue">Court Yard</font></td>
+                <td class="shrink"><font color="darkblue" id="Court Yard">Court Yard</font></td>
 				<td class="board-center" colspan="9"></td>
-                <td class="shrink"><font color="gray">Library</font></td>
+                <td class="shrink"><font color="gray" id="Library">Library</font></td>
 			</tr>
 			<tr height=60>
-                <td class="shrink"><font color="blue">Computer Science I & II</font></td>
+                <td class="shrink"><font color="blue" id="Computer Science I and II">Computer Science I and II</font></td>
 				<td class="board-center" colspan="9"></td>
-				<td class="shrink"><font color="purple">Chemistry</font></td>
+				<td class="shrink"><font color="purple" id="Chemistry">Chemistry</font></td>
 			</tr>
 			<tr height=60>
                 <td class="shrink"><font color="white">Report Card</font></td>
 				<td class="board-center" colspan="9"></td>
-				<td class="shrink"><font color="purple">AP Physics I</font></td>
+				<td class="shrink"><font color="purple" id="AP Physics I and II">AP Physics I and II</font></td>
 			</tr>
 			<tr height=60>
                 <td class="shrink"><font color="magenta">Senior Hallway</font></td>
 				<td class="board-center" colspan="9"></td>
-                <td class="shrink"><font color="magenta">Sophmore Hallway</font></td>
+                <td class="shrink"><font color="magenta">Sophomore Hallway</font></td>
 			</tr>
 			<tr height=60>
-				<td class="shrink"><font color="green">AP Literature</font></td>
+				<td class="shrink"><font color="green" id="AP Literature">AP Literature</font></td>
 				<td class="board-center" colspan="9"></td>
-				<td class="shrink"><font color="orange">Band</font></td>
+				<td class="shrink"><font color="orange" id="Band">Band</font></td>
 			</tr>
 			<tr height=60>
 				<td class="shrink"><font color="aqua">Test</font></td>
@@ -64,26 +64,26 @@
 				<td class="shrink"><font color="aqua">Test</font></td>
 			</tr>
 			<tr height=60>
-				<td class="shrink"><font color="green">AP Language and Composition</font></td>
+				<td class="shrink"><font color="green" id="AP Language and Composition">AP Language and Composition</font></td>
 				<td class="board-center" colspan="9"></td>
-				<td class="shrink"><font color="orange">Chorus</font></td>
+				<td class="shrink"><font color="orange" id="Chorus">Chorus</font></td>
 			</tr>
 			<tr height=60>
-                <td class="shrink"><font color="green">English 10</font></td>
+                <td class="shrink"><font color="green" id="English 10">English 10</font></td>
 				<td class="board-center" colspan="9"></td>
-				<td class="shrink"><font color="orange">Orchestra</font></td>
+				<td class="shrink"><font color="orange" id="Orchestra">Orchestra</font></td>
 			</tr>
 			<tr height=60>
 				<td class="expand">Detention</td>
-				<td class="shrink"><font color="yellow">French</font></td>
+				<td class="shrink"><font color="yellow" id="French">French</font></td>
                 <td class="shrink"><font color="gray">Cafeteria</font></td>
-				<td class="shrink"><font color="yellow">Spanish</font></td>
-				<td class="shrink"><font color="yellow">Chinese</font></td>
+				<td class="shrink"><font color="yellow" id="Spanish">Spanish</font></td>
+				<td class="shrink"><font color="yellow" id="Chinese">Chinese</font></td>
                 <td class="shrink"><font color="magenta">Junior Hallway</font></td>
-				<td class="shrink"><font color="red">Calculus</font></td>
-				<td class="shrink"><font color="red">Geometry</font></td>
+				<td class="shrink"><font color="red" id="Calculus">Calculus</font></td>
+				<td class="shrink"><font color="red" id="Geometry">Geometry</font></td>
                 <td class="shrink"><font color="white">Report Card</font></td>
-				<td class="shrink"><font color="red">Algebra</font></td>
+				<td class="shrink"><font color="red" id="Algebra">Algebra</font></td>
 				<td class="shrink">Free Period</td>
 			</tr>
 		</table>
@@ -192,6 +192,7 @@
                         alert(players[num].name + " was not able to get extra help!");
                     }
                 }
+				reboard(classrooms);
             }
 
             // Print player info
@@ -221,6 +222,16 @@
 				document.getElementById("playerInfo").innerHTML = playerString;
             }
 
+			// Label number of extra help sessions on the board
+			function reboard(classrooms) {
+				for (var num in classrooms) {
+					if (classrooms[num].isProperty) {
+						var houses = "+".repeat(classrooms[num].houses);
+						document.getElementById(classrooms[num].name).innerHTML = classrooms[num].name + houses;
+					}
+				}
+			}
+			
             // Roll die twice and return number
             function roll() {
                 var num1 = Math.floor(Math.random() * 6) + 1;
@@ -233,7 +244,7 @@
                 var x = 0;
                 while (x < players.length) {
                     if (players[x].points < 0) {
-                        alert(players[x].name + " has " + players[x].points.toFixed(2) + "!\n" + players[x].name + " has been expelled!");
+                        alert(players[x].name + " has " + players[x].points.toFixed(2) + "!\n" + players[x].name + " has been expelled! (but will continue to haunt the school)");
                         players.splice(x, 1);
                     }
                     else {
@@ -255,6 +266,7 @@
                 document.getElementById("playButton").innerHTML = "";
                 document.getElementById("houseButton").innerHTML = "";
 
+				reboard(classrooms);
                 if (expell(players)) {
                     return false;
                 }
@@ -329,7 +341,6 @@
                         // Hallways
 						if (classrooms[players[i].position].color == "Railroad" && classrooms[players[i].position].owner != players[i] && classrooms[players[i].position].owner != null) {
 							alert(players[i].name + " is in " + classrooms[players[i].position].owner.name + "'s Hallway!\nPay " + classrooms[players[i].position].rent[1] + " points!");
-							// Change this based on number of hallways
 							players[i].points -= classrooms[players[i].position].rent[1];
 							classrooms[players[i].position].owner.points += classrooms[players[i].position].rent[1];
 						}
@@ -412,7 +423,7 @@
                 classrooms.push(new Tax("Senior Lounge", "Tax", 2.0))
                 classrooms.push(new Hallway("Freshman Hallway", "Railroad"))
                 classrooms.push(new Property("World History", "Social Studies", 12, [0.8, 4.0, 10.0, 30.0, 45.0, 60.0], 6, 5));
-                classrooms.push(new Property("US History", "Social Studies", 10.0, [0.6, 3.0, 9.0, 27.0, 40.0, 55.0], 5, 5));
+                classrooms.push(new Property("AP U.S. History", "Social Studies", 10.0, [0.6, 3.0, 9.0, 27.0, 40.0, 55.0], 5, 5));
                 classrooms.push(new Square("Report Card", "Chance"));
                 classrooms.push(new Property("AP Government", "Social Studies", 10, [0.6, 3.0, 9.0, 27.0, 40.0, 55.0], 5, 5));
                 classrooms.push(new Square("Frisone's Office", "Jail"));
@@ -420,7 +431,7 @@
                 classrooms.push(new Utility("Library", "Utility"));
                 classrooms.push(new Property("Chemistry", "Science", 14, [1.0, 5.0, 15.0, 45.0, 62.5, 75.0], 7, 10));
                 classrooms.push(new Property("AP Physics I and II", "Science", 16, [1.2, 6.0, 18.0, 50.0, 70.0, 900.0], 9, 10));
-                classrooms.push(new Hallway("Sophmore Hallway", "Railroad"))
+                classrooms.push(new Hallway("Sophomore Hallway", "Railroad"))
                 classrooms.push(new Property("Band", "Music", 18, [1.4, 7.0, 20.0, 55.0, 75.0, 95.0], 9, 10));
                 classrooms.push(new Square("Test", "Community Chest"));
                 classrooms.push(new Property("Chorus", "Music", 18, [1.4, 7.0, 20.0, 55.0, 75.0, 95.0], 9, 10));
@@ -449,6 +460,7 @@
             }
 
             classrooms = properties();
+			reboard(classrooms);
 
 		</script>
 	</body>
